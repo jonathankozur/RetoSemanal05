@@ -35,6 +35,14 @@ function getCarrito() {
     resolve(carrito);
   });
 }
+function addCarrito(producto) {
+  return new Promise(function (resolve, reject) {
+    carrito = carrito ? carrito : [];
+    carrito.push(producto);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    resolve(carrito);
+  });
+}
 
 export {
   categorias,
@@ -42,4 +50,5 @@ export {
   productoDestacado,
   getProductoDestacado,
   getCarrito,
+  addCarrito,
 };

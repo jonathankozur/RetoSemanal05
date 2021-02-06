@@ -72,8 +72,7 @@ export default class Header {
 
     let carrito = document.createElement("button");
     carrito.classList.add("header__carrito");
-    carrito.textContent = "carrito " + getCarrito().length;
-
+    getCarrito().then((res) => (carrito.textContent = "carrito " + res.length));
     // carrito.src = "./images/shopping-cart.svg";
     carrito.addEventListener("click", () => this.clickCarrito(props));
 

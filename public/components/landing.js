@@ -19,7 +19,6 @@ export default class Landing {
   }
 
   clickComprar(props) {
-    console.log("clickComprar");
     props.acciones.agregarCarrito(productoDestacado);
   }
   modelo(props) {
