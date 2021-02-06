@@ -1,0 +1,7 @@
+.header__container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: tomato;
+}

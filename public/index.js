@@ -1,4 +1,4 @@
-// productos cargados
+import { getCarrito } from "./datos.js";
 
 //cargando podria pasarle que pagina deberia llamar luego de retornar la info de la api rest
 
@@ -11,12 +11,9 @@ import Landing from "./components/landing.js";
 import Productos from "./components/productos.js";
 
 let root = document.querySelector(".root");
-let componentes = [];
-console.log("primer root", document.querySelector(".root"));
 
 let props = {};
 if (!localStorage.getItem("show")) {
-  console.log("Entramos al localStorage vacio");
   props = {
     proximaPagina: [
       { componente: "header", props: {} },
@@ -33,6 +30,7 @@ if (!localStorage.getItem("show")) {
 function crearComponente(elemento) {
   elemento.props.acciones = {
     show: (componentes) => show(componentes),
+    agregarCarrito: (producto) => agregarCarrito(producto),
   };
 
   switch (elemento.componente) {
@@ -54,15 +52,20 @@ function crearComponente(elemento) {
       break;
   }
 }
-function agregar(componente) {
-  componentes.push(componente);
+function agregarShow(componente) {
   root.appendChild(componente);
 }
 
 function show(componentes) {
-  componentes.map((comp) => comp.remove());
-  componentes = [];
-  componentes.map((el) => agregar(crearComponente(el).modelo));
+  while (root.lastElementChild) {
+    root.removeChild(root.lastElementChild);
+  }
+  componentes.map((el) => agregarShow(crearComponente(el).modelo));
 }
 
+function agregarCarrito(producto) {
+  getCarrito;
+}
+
+/**aca empieza todo**/
 show(JSON.parse(localStorage.getItem("show")));
