@@ -61,7 +61,7 @@ export default class Header {
     let logo = document.createElement("button");
     logo.classList.add("header__logo");
     logo.textContent = "logo";
-    // logo.src = "./images/logo.svg";
+
     logo.addEventListener("click", () => this.clickLogo(props));
 
     let contenedorCategorias = document.createElement("div");
@@ -70,13 +70,11 @@ export default class Header {
       contenedorCategorias.appendChild(this.crearCategoria(categoria))
     );
 
-    let carrito = document.createElement("button");
-    carrito.classList.add("header__carrito");
-    getCarrito().then((res) => (carrito.textContent = "carrito " + res.length));
-    // carrito.src = "./images/shopping-cart.svg";
-    carrito.addEventListener("click", () => this.clickCarrito(props));
-
-    container.append(logo, contenedorCategorias, carrito, css);
+    let elementoCarrito = document.createElement("button");
+    elementoCarrito.classList.add("header__carrito");
+    elementoCarrito.textContent = "carrito " + getCarrito().length;
+    elementoCarrito.addEventListener("click", () => this.clickCarrito(props));
+    container.append(logo, contenedorCategorias, elementoCarrito, css);
     return container;
   }
   main(props) {}

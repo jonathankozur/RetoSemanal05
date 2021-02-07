@@ -27,15 +27,16 @@ export default class Landing {
     let container = document.createElement("div");
     container.classList.add("landing__container");
 
+    let imagenFondo = document.createElement("img");
+    imagenFondo.classList.add("landing__fondo");
+    imagenFondo.src = "https://picsum.photos/1200/500";
+
     let comprar = document.createElement("button");
     comprar.classList.add("landing__comprar");
     comprar.textContent = "Comprar";
     comprar.addEventListener("click", () => this.clickComprar(props));
 
-    let h1 = document.createElement("h1");
-    h1.textContent = "Landing";
-
-    container.append(h1, comprar, css);
+    container.append(comprar, imagenFondo, css);
     return container;
   }
   main(props) {}

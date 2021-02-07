@@ -29,10 +29,6 @@ export default class Cargando {
     return container;
   }
   main(props) {
-    // getCategorias()
-    //   .then(() =>
-    //     setTimeout(() => props.acciones.show(props.proximaPagina), 10)
-    //   );
     Promise.all([getCategorias(), getProductoDestacado()]).then(() =>
       setTimeout(() => props.acciones.show(props.proximaPagina), 10)
     );

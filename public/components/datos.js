@@ -1,5 +1,4 @@
 let categorias = JSON.parse(localStorage.getItem("categorias"));
-let productos = JSON.parse(localStorage.getItem("productos"));
 let productoDestacado = JSON.parse(localStorage.getItem("productoDestacado"));
 let carrito = JSON.parse(localStorage.getItem("carrito"));
 
@@ -18,7 +17,8 @@ function getCategorias() {
 
 function getProductoDestacado() {
   return new Promise(function (resolve, reject) {
-    fetch("https://fakestoreapi.com/products/1")
+    let numeroAleatorio = Math.floor(Math.random() * 20);
+    fetch("https://fakestoreapi.com/products/" + numeroAleatorio)
       .then((response) => response.json())
       .then((data) => {
         productoDestacado = data;
@@ -29,19 +29,15 @@ function getProductoDestacado() {
   });
 }
 
-function getCarrito() {
-  return new Promise(function (resolve, reject) {
-    carrito = carrito ? carrito : [];
-    resolve(carrito);
-  });
-}
 function addCarrito(producto) {
-  return new Promise(function (resolve, reject) {
-    carrito = carrito ? carrito : [];
-    carrito.push(producto);
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    resolve(carrito);
-  });
+  carrito = carrito ? carrito : [];
+  carrito.push(producto);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function getCarrito() {
+  carrito = JSON.parse(localStorage.getItem("carrito"));
+  return carrito ? carrito : [];
 }
 
 export {

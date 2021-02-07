@@ -1,7 +1,5 @@
 import { getCarrito, addCarrito } from "./components/datos.js";
 
-//cargando podria pasarle que pagina deberia llamar luego de retornar la info de la api rest
-
 import Cargando from "./components/cargando.js";
 import Carrito from "./components/carrito.js";
 import Categorias from "./components/categorias.js";
@@ -64,10 +62,9 @@ function show(componentes) {
 }
 
 function agregarCarrito(producto) {
-  let carrito = document.querySelector(".header__carrito");
-  addCarrito(producto)
-    .then((res) => getCarrito())
-    .then((res) => (carrito.textContent = "carrito " + res.length));
+  let elementoCarrito = document.querySelector(".header__carrito");
+  addCarrito(producto);
+  elementoCarrito.textContent = "carrito " + getCarrito().length;
 }
 
 /**aca empieza todo**/

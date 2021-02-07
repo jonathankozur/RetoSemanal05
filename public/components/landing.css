@@ -1,5 +1,10 @@
 .landing__container {
   width: 100%;
   min-height: 90vh;
-  background-color: royalblue;
+  /* background-color: royalblue; */
+}
+
+.landing__fondo {
+  position: absolute;
+  z-index: -1;
 }
