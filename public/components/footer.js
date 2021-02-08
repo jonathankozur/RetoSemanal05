@@ -15,7 +15,7 @@ export default class Footer {
   }
   modelo() {
     let css = this.cargarCSS();
-    let container = document.createElement("div");
+    let container = document.createElement("footer");
     let h1 = document.createElement("h1");
 
     container.classList.add("footer__container");

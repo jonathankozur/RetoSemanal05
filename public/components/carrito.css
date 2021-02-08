@@ -1,0 +1,15 @@
+.carrito__producto {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: slateblue;
+}
+.carrito_producto--imagen {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  /* border-radius: 50%; */
+}
+
+.carrito_producto--titulo {
+  width: 60%;
+}

@@ -18,25 +18,37 @@ export default class Landing {
     return css;
   }
 
-  clickComprar(props) {
-    props.acciones.agregarCarrito(productoDestacado);
+  clickComprar(producto) {
+    this.props.acciones.agregarCarrito(producto);
   }
   modelo(props) {
     let css = this.cargarCSS();
 
-    let container = document.createElement("div");
+    let container = document.createElement("section");
     container.classList.add("landing__container");
+    container.style.backgroundImage = "url(https://picsum.photos/1200/500)";
 
-    let imagenFondo = document.createElement("img");
-    imagenFondo.classList.add("landing__fondo");
-    imagenFondo.src = "https://picsum.photos/1200/500";
+    let fondoDatos = document.createElement("div");
+    fondoDatos.classList.add("landing__fondo");
+
+    let titulo = document.createElement("h1");
+    titulo.classList.add("landing__fondo--titulo");
+    titulo.textContent = productoDestacado.title;
+
+    let descripcion = document.createElement("p");
+    descripcion.classList.add("landing__fondo--descripcion");
+    descripcion.textContent = productoDestacado.description;
 
     let comprar = document.createElement("button");
-    comprar.classList.add("landing__comprar");
+    comprar.classList.add("landing__fondo--comprar");
     comprar.textContent = "Comprar";
-    comprar.addEventListener("click", () => this.clickComprar(props));
+    comprar.addEventListener("click", () =>
+      this.clickComprar(productoDestacado)
+    );
 
-    container.append(comprar, imagenFondo, css);
+    fondoDatos.append(titulo, descripcion, comprar);
+
+    container.append(fondoDatos, css);
     return container;
   }
   main(props) {}

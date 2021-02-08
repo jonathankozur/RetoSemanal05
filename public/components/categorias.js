@@ -19,12 +19,25 @@ export default class Categorias {
 
   clickCard(event) {
     let card = event.target.closest(".categorias__card");
-    console.log(card.getAttribute("categoria"));
+    let categoria = card.getAttribute("categoria");
+
+    let propsProductos = { categoria: categoria };
+
+    let nuevasProps = {
+      proximaPagina: [
+        { componente: "header", props: {} },
+        { componente: "productos", props: propsProductos },
+        { componente: "footer", props: {} },
+      ],
+      cargar: ["productosCategoria"],
+      cargarProps: { categoria: categoria },
+    };
 
     let componentes = [
-      { componente: "header", props: {} },
-      { componente: "productos", props: {} },
-      { componente: "footer", props: {} },
+      {
+        componente: "cargando",
+        props: nuevasProps,
+      },
     ];
     localStorage.setItem("show", JSON.stringify(componentes));
     this.props.acciones.show(componentes);
@@ -37,7 +50,8 @@ export default class Categorias {
 
     let imagen = document.createElement("img");
     imagen.classList.add("categorias__card--imagen");
-    imagen.src = "https://picsum.photos/280/470";
+    // imagen.src = "https://picsum.photos/280/470";
+    imagen.src = "./images/category-" + categoria.replace(" ", "-") + ".webp";
 
     let titulo = document.createElement("h3");
     titulo.classList.add("categorias__card--titulo");
@@ -50,7 +64,7 @@ export default class Categorias {
   modelo(props) {
     let css = this.cargarCSS();
 
-    let container = document.createElement("div");
+    let container = document.createElement("section");
     container.classList.add("categorias__container");
 
     categorias.map((categoria) =>

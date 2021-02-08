@@ -1,6 +1,7 @@
 let categorias = JSON.parse(localStorage.getItem("categorias"));
 let productoDestacado = JSON.parse(localStorage.getItem("productoDestacado"));
 let carrito = JSON.parse(localStorage.getItem("carrito"));
+let productosCategoria = JSON.parse(localStorage.getItem("productosCategoria"));
 
 function getCategorias() {
   return new Promise(function (resolve, reject) {
@@ -40,6 +41,19 @@ function getCarrito() {
   return carrito ? carrito : [];
 }
 
+function getProductosCategoria(categoria) {
+  return new Promise(function (resolve, reject) {
+    fetch("https://fakestoreapi.com/products/category/" + categoria)
+      .then((response) => response.json())
+      .then((data) => {
+        productosCategoria = data;
+        localStorage.setItem("productosCategoria", JSON.stringify(data));
+        resolve("ok");
+      })
+      .catch((error) => reject(error));
+  });
+}
+
 export {
   categorias,
   getCategorias,
@@ -47,4 +61,6 @@ export {
   getProductoDestacado,
   getCarrito,
   addCarrito,
+  productosCategoria,
+  getProductosCategoria,
 };

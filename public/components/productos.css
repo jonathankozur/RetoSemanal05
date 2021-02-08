@@ -1,0 +1,35 @@
+.productos__container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 90vh;
+}
+.productos__card {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 290px;
+  height: 500px;
+  background-color: skyblue;
+  margin: 5px 5px 5px 5px;
+}
+.productos__card--imagen {
+  width: 80%;
+  height: 70%;
+  object-fit: contain;
+}
+.productos__card--tituto {
+  margin: 0px;
+  width: 100%;
+  text-align: left;
+  padding: 0xp 5px 0px 5px;
+}
+.productos__card--precio {
+  margin: 0xp;
+  width: 100%;
+  text-align: left;
+  padding: 0xp 5px 0px 5px;
+}

@@ -19,6 +19,7 @@ if (!localStorage.getItem("show")) {
       { componente: "categorias", props: {} },
       { componente: "footer", props: {} },
     ],
+    cargar: ["categorias", "productoDestacado"],
   };
   localStorage.setItem(
     "show",
@@ -30,7 +31,6 @@ function crearComponente(elemento) {
     show: (componentes) => show(componentes),
     agregarCarrito: (producto) => agregarCarrito(producto),
   };
-
   switch (elemento.componente) {
     case "header":
       return new Header(elemento.props);
@@ -62,9 +62,9 @@ function show(componentes) {
 }
 
 function agregarCarrito(producto) {
-  let elementoCarrito = document.querySelector(".header__carrito");
+  let elementoCarrito = document.querySelector(".header__carrito--cantidad");
   addCarrito(producto);
-  elementoCarrito.textContent = "carrito " + getCarrito().length;
+  elementoCarrito.textContent = getCarrito().length;
 }
 
 /**aca empieza todo**/

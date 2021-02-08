@@ -1,15 +1,64 @@
+import { productosCategoria } from "./datos.js";
+
 export default class Productos {
   constructor(props) {
     this.modelo = this.modelo(props);
+    this.props = props;
+    this.main(this.props);
   }
-  modelo() {
-    let container = document.createElement("div");
-    let h1 = document.createElement("h1");
+  cargarCSS() {
+    let css = document.createElement("link");
+    css.setAttribute("rel", "stylesheet");
+    css.setAttribute(
+      "href",
+      "./components/" + this.constructor.name.toLowerCase() + ".css"
+    );
+    css.setAttribute("media", "screen");
+    return css;
+  }
 
+  clickComprar(producto) {
+    this.props.acciones.agregarCarrito(producto);
+  }
+
+  crearProducto(producto) {
+    let card = document.createElement("div");
+    card.classList.add("productos__card");
+    card.setAttribute("data-id", producto.id);
+
+    let imagen = document.createElement("img");
+    imagen.classList.add("productos__card--imagen");
+    imagen.src = producto.image;
+
+    let titulo = document.createElement("h3");
+    titulo.classList.add("productos__card--tituto");
+    titulo.textContent = producto.title;
+
+    let precio = document.createElement("h4");
+    precio.classList.add("productos__card--precio");
+    precio.textContent = producto.price;
+
+    let comprar = document.createElement("button");
+    comprar.classList.add("productos__card--comprar");
+    comprar.textContent = "Comprar";
+    comprar.addEventListener("click", () => this.clickComprar(producto));
+
+    card.append(imagen, titulo, precio, comprar);
+
+    return card;
+  }
+
+  modelo(props) {
+    let css = this.cargarCSS();
+    let container = document.createElement("section");
     container.classList.add("productos__container");
-    h1.textContent = "Productos";
 
-    container.append(h1);
+    productosCategoria.map((producto) =>
+      container.appendChild(this.crearProducto(producto))
+    );
+
+    container.appendChild(css);
     return container;
   }
+  main(props) {}
 }

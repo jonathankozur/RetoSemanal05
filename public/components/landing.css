@@ -1,10 +1,14 @@
 .landing__container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
   min-height: 90vh;
-  /* background-color: royalblue; */
+  background-size: cover;
 }
 
 .landing__fondo {
-  position: absolute;
-  z-index: -1;
+  background-color: rgba(6, 6, 6, 0.5);
+  width: 280px;
 }

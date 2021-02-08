@@ -2,14 +2,28 @@ import { categorias, getCarrito } from "./datos.js";
 
 export default class Header {
   constructor(props) {
-    this.modelo = this.modelo(props);
     this.props = props;
+    this.modelo = this.modelo(props);
     this.main(this.props);
   }
   crearCategoria(categoria) {
     let elemento = document.createElement("button");
-    elemento.textContent = categoria;
     elemento.classList.add("header__categoria");
+    if (this.props && this.props.categoriaSeleccionada == categoria)
+      elemento.classList.add("header__categoria--seleccionado");
+
+    elemento.setAttribute("categoria", categoria);
+    elemento.addEventListener("click", (e) => this.clickCategoria(e));
+
+    let icono = document.createElement("img");
+    icono.classList.add("header__categoria--icono", "off__desktop");
+    icono.src = "./images/icon-" + categoria.replace(" ", "-") + ".svg";
+
+    let titulo = document.createElement("h6");
+    titulo.classList.add("header__categoria--titulo", "off__mobile");
+    titulo.textContent = categoria;
+
+    elemento.append(icono, titulo);
     return elemento;
   }
 
@@ -41,6 +55,7 @@ export default class Header {
         { componente: "categorias", props: {} },
         { componente: "footer", props: {} },
       ],
+      cargar: ["categorias", "productoDestacado"],
     };
     let componentes = [
       {
@@ -52,17 +67,68 @@ export default class Header {
     props.acciones.show(componentes);
   }
 
+  clickCategoria(event) {
+    let card = event.target.closest(".header__categoria");
+    let categoria = card.getAttribute("categoria");
+
+    let propsProductos = { categoria: categoria };
+
+    let nuevasProps = {
+      proximaPagina: [
+        { componente: "header", props: { categoriaSeleccionada: categoria } },
+        { componente: "productos", props: propsProductos },
+        { componente: "footer", props: {} },
+      ],
+      cargar: ["productosCategoria"],
+      cargarProps: { categoria: categoria },
+    };
+
+    let componentes = [
+      {
+        componente: "cargando",
+        props: nuevasProps,
+      },
+    ];
+    localStorage.setItem("show", JSON.stringify(componentes));
+    this.props.acciones.show(componentes);
+  }
+
+  crearLogo(props) {
+    let logo = document.createElement("button");
+    logo.classList.add("header__logo");
+    logo.addEventListener("click", () => this.clickLogo(props));
+
+    let imagen = document.createElement("img");
+    imagen.classList.add("header__logo--imagen");
+    imagen.src = "./images/icon-logo.svg";
+
+    logo.appendChild(imagen);
+
+    return logo;
+  }
+
+  crearCarrito() {
+    let elementoCarrito = document.createElement("button");
+    elementoCarrito.classList.add("header__carrito");
+    elementoCarrito.style.backgroundImage = "url(./images/icon-carrito.svg)";
+    elementoCarrito.addEventListener("click", () => this.clickCarrito(props));
+
+    let cantidad = document.createElement("p");
+    cantidad.classList.add("header__carrito--cantidad");
+    cantidad.textContent = getCarrito().length;
+
+    elementoCarrito.appendChild(cantidad);
+
+    return elementoCarrito;
+  }
+
   modelo(props) {
     let css = this.cargarCSS();
 
-    let container = document.createElement("div");
+    let container = document.createElement("header");
     container.classList.add("header__container");
 
-    let logo = document.createElement("button");
-    logo.classList.add("header__logo");
-    logo.textContent = "logo";
-
-    logo.addEventListener("click", () => this.clickLogo(props));
+    let logo = this.crearLogo(props);
 
     let contenedorCategorias = document.createElement("div");
     contenedorCategorias.classList.add("header__contenedorCategorias");
@@ -70,10 +136,8 @@ export default class Header {
       contenedorCategorias.appendChild(this.crearCategoria(categoria))
     );
 
-    let elementoCarrito = document.createElement("button");
-    elementoCarrito.classList.add("header__carrito");
-    elementoCarrito.textContent = "carrito " + getCarrito().length;
-    elementoCarrito.addEventListener("click", () => this.clickCarrito(props));
+    let elementoCarrito = this.crearCarrito();
+
     container.append(logo, contenedorCategorias, elementoCarrito, css);
     return container;
   }

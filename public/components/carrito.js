@@ -17,8 +17,13 @@ export default class Carrito {
   }
 
   crearProducto(producto) {
+    console.log("producto", producto);
     let elemento = document.createElement("li");
     elemento.classList.add("carrito__producto");
+
+    let imagen = document.createElement("img");
+    imagen.classList.add("carrito_producto--imagen");
+    imagen.src = producto.descripcion.image;
 
     let titulo = document.createElement("h3");
     titulo.classList.add("carrito__producto--titulo");
@@ -32,18 +37,15 @@ export default class Carrito {
     precio.classList.add("carrito__producto--precio");
     precio.textContent = producto.descripcion.price;
 
-    elemento.append(titulo, cantidad, precio);
+    elemento.append(imagen, titulo, cantidad, precio);
     return elemento;
   }
 
   modelo(props) {
     let css = this.cargarCSS();
 
-    let container = document.createElement("div");
+    let container = document.createElement("section");
     container.classList.add("carrito__container");
-
-    let h1 = document.createElement("h1");
-    h1.textContent = "Carrito";
 
     let productosCarrito = getCarrito().reduce((acc, el) => {
       let index = acc.findIndex((elemento) => elemento.id == el.id);
@@ -59,7 +61,7 @@ export default class Carrito {
       listadoProductos.appendChild(this.crearProducto(producto))
     );
 
-    container.append(h1, css, listadoProductos);
+    container.append(listadoProductos, css);
 
     return container;
   }

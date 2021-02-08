@@ -1,4 +1,8 @@
-import { getCategorias, getProductoDestacado } from "./datos.js";
+import {
+  getCategorias,
+  getProductoDestacado,
+  getProductosCategoria,
+} from "./datos.js";
 
 export default class Cargando {
   constructor(props) {
@@ -19,7 +23,7 @@ export default class Cargando {
   modelo() {
     let css = this.cargarCSS();
 
-    let container = document.createElement("div");
+    let container = document.createElement("section");
     let h1 = document.createElement("h1");
 
     container.classList.add("cargando__container");
@@ -29,7 +33,19 @@ export default class Cargando {
     return container;
   }
   main(props) {
-    Promise.all([getCategorias(), getProductoDestacado()]).then(() =>
+    let arrayPromise = props.cargar.map((el) => {
+      switch (el) {
+        case "categorias":
+          return getCategorias();
+        case "productoDestacado":
+          return getProductoDestacado();
+        case "productosCategoria":
+          return getProductosCategoria(props.cargarProps.categoria);
+        default:
+          break;
+      }
+    });
+    Promise.all(arrayPromise).then(() =>
       setTimeout(() => props.acciones.show(props.proximaPagina), 10)
     );
   }
