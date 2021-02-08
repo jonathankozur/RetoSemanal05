@@ -50,14 +50,13 @@ export default class Categorias {
 
     let imagen = document.createElement("img");
     imagen.classList.add("categorias__card--imagen");
-    // imagen.src = "https://picsum.photos/280/470";
     imagen.src = "./images/category-" + categoria.replace(" ", "-") + ".webp";
 
     let titulo = document.createElement("h3");
     titulo.classList.add("categorias__card--titulo");
     titulo.textContent = categoria;
 
-    card.append(imagen, titulo);
+    card.append(titulo,imagen);
     card.addEventListener("click", (e) => this.clickCard(e));
     return card;
   }

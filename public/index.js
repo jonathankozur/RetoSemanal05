@@ -8,6 +8,13 @@ import Header from "./components/header.js";
 import Landing from "./components/landing.js";
 import Productos from "./components/productos.js";
 
+
+let version = 2;
+let versionLocalStorage = localStorage.getItem("version")
+if (version != versionLocalStorage)
+  localStorage.clear()
+localStorage.setItem("version",version)
+
 let root = document.querySelector(".root");
 
 let props = {};
