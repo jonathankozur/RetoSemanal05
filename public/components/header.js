@@ -107,7 +107,7 @@ export default class Header {
     return logo;
   }
 
-  crearCarrito() {
+  crearCarrito(props) {
     let elementoCarrito = document.createElement("button");
     elementoCarrito.classList.add("header__carrito");
     elementoCarrito.style.backgroundImage = "url(./images/icon-carrito.svg)";
@@ -136,7 +136,7 @@ export default class Header {
       contenedorCategorias.appendChild(this.crearCategoria(categoria))
     );
 
-    let elementoCarrito = this.crearCarrito();
+    let elementoCarrito = this.crearCarrito(props);
 
     container.append(logo, contenedorCategorias, elementoCarrito, css);
     return container;
