@@ -25,7 +25,7 @@ export default class Categorias {
 
     let nuevasProps = {
       proximaPagina: [
-        { componente: "header", props: {} },
+        { componente: "header", props: {categoriaSeleccionada: categoria} },
         { componente: "productos", props: propsProductos },
         { componente: "footer", props: {} },
       ],
