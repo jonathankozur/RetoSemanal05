@@ -48,6 +48,10 @@ export default class Landing {
     titulo.classList.add("landing__fondo--titulo");
     titulo.textContent = productoDestacado.title;
 
+    let precio = document.createElement('h2')
+    precio.classList.add('landing__fondo--precio')
+    precio.textContent = '$ '+productoDestacado.price.toFixed(2)
+
     let descripcion = document.createElement("p");
     descripcion.classList.add("landing__fondo--descripcion");
     descripcion.textContent = this.recortarTexto(
@@ -63,7 +67,7 @@ export default class Landing {
       this.clickComprar(productoDestacado)
     );
 
-    fondoDatos.append(imagen, titulo, descripcion, comprar);
+    fondoDatos.append(imagen, titulo, precio, descripcion, comprar);
     contenedorFondoDatos.append(fondoDatos);
 
     container.append(contenedorFondoDatos, css);

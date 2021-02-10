@@ -65,6 +65,12 @@
   object-fit: cover;
   border-radius: 0px 0px 20px 20px;
 }
+
+.landing__fondo--precio{
+  width: 80%;
+  text-align: left;
+}
+
 .landing__fondo--titulo {
   width: 80%;
   font-size: 16px;

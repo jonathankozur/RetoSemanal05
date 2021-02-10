@@ -76,10 +76,12 @@
 .header__categoria:hover {
   animation: header__categoria--hover 0.6s both;
   cursor: pointer;
+  padding: 3px 5px 0px 5px;
 }
 
 .header__categoria:active {
   animation: header__categoria--active 0.6s both;
+  padding: 3px 5px 0px 5px;
 }
 .header__categoria:focus {
   outline: none;
@@ -88,7 +90,7 @@
 @keyframes header__categoria--hover {
   0% {
     text-shadow: 0 0 0 rgba(238, 238, 238, 0);
-    border-bottom: 0px solid rgba(0, 173, 181, 0);
+    border-bottom: 3px solid rgba(0, 173, 181, 0);
   }
   100% {
     text-shadow: 0 0 18px rgba(238, 238, 238, 0.5);

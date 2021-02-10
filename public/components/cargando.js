@@ -24,12 +24,17 @@ export default class Cargando {
     let css = this.cargarCSS();
 
     let container = document.createElement("section");
-    let h1 = document.createElement("h1");
-
     container.classList.add("cargando__container");
-    h1.textContent = "Cargando";
+    
+let roller = document.createElement('div')
+roller.classList.add('lds-roller')
 
-    container.append(h1, css);
+for (let i = 0; i < 8; i++) {
+  let div = document.createElement('div')
+  roller.appendChild(div)
+}
+
+    container.append(roller, css);
     return container;
   }
   main(props) {
