@@ -25,6 +25,7 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .landing__fondo:hover {
@@ -60,35 +61,40 @@
 }
 
 .landing__fondo--imagen {
-  width: 150px;
-  height: 150px;
+  width: 280px;
+  height: 280px;
   object-fit: cover;
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .landing__fondo--precio{
   width: 80%;
   text-align: left;
+  margin: 5px 0px 5px 0px;
 }
 
 .landing__fondo--titulo {
   width: 80%;
   font-size: 16px;
+  margin: 5px 0px 5px 0px;
 }
 
 .landing__fondo--descripcion {
   width: 80%;
   font-size: 13px;
+  margin: 5px 0px 5px 0px;
 }
 .landing__fondo--comprar {
   background-color: #00adb5;
   border: none;
   color: #eeeeee;
-  width: 80%;
-  height: 30px;
+  width: 100%;
+  height: 40px;
   padding: 2px;
   margin: 2px 5px 0px 5px;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0px 0px 20px 20px;
+  font-weight: bolder;
+  font-size: 16px;
 }
 
 .landing__fondo--comprar:hover {

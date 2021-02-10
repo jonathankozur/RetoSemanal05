@@ -62,7 +62,7 @@ export default class Landing {
 
     let comprar = document.createElement("button");
     comprar.classList.add("landing__fondo--comprar");
-    comprar.textContent = "buy it!";
+    comprar.textContent = "Buy it!";
     comprar.addEventListener("click", () =>
       this.clickComprar(productoDestacado)
     );

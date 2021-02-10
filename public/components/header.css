@@ -116,6 +116,7 @@
 .header__categoria--titulo {
   margin: 0px;
   font-size: 12px;
+  text-transform: capitalize;
 }
 
 .header__categoria--icono {

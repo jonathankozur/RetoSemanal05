@@ -36,7 +36,7 @@ export default class Productos {
 
     let precio = document.createElement("h4");
     precio.classList.add("productos__card--precio");
-    precio.textContent = producto.price;
+    precio.textContent = '$ '+producto.price.toFixed(2)
 
     let comprar = document.createElement("button");
     comprar.classList.add("productos__card--comprar");
