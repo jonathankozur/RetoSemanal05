@@ -8,7 +8,116 @@
   background-size: cover;
 }
 
+.landing__contenedorFondo--centrar {
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
 .landing__fondo {
   background-color: rgba(6, 6, 6, 0.5);
   width: 280px;
+  color: #eeeeee;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__fondo:hover {
+  animation: landing__fondo--hover 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  cursor: pointer;
+}
+
+.landing__fondo:active {
+  animation: landing__fondo--active 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+}
+
+@keyframes landing__fondo--hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 5px 5px 10px #595e66, -5px -5px 10px #6d727c;
+  }
+  100% {
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px #4f535a, -5px -5px 10px #777d88;
+  }
+}
+
+@keyframes landing__fondo--active {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.landing__fondo--imagen {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0px 0px 20px 20px;
+}
+.landing__fondo--titulo {
+  width: 80%;
+  font-size: 16px;
+}
+
+.landing__fondo--descripcion {
+  width: 80%;
+  font-size: 13px;
+}
+.landing__fondo--comprar {
+  background-color: #00adb5;
+  border: none;
+  color: #eeeeee;
+  width: 80%;
+  height: 30px;
+  padding: 2px;
+  margin: 2px 5px 0px 5px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.landing__fondo--comprar:hover {
+  animation: landing__fondo--comprar--hover 0.2s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  cursor: pointer;
+}
+
+@keyframes landing__fondo--comprar--hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 5px 5px 10px #30353c, -5px -5px 10px #424751;
+  }
+  100% {
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px #30353c, -5px -5px 10px #424751;
+  }
+}
+
+.landing__fondo--comprar:active {
+  animation: landing__fondo--comprar--active 0.4s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.landing__fondo--comprar:focus {
+  outline: none;
+}
+
+@keyframes landing__fondo--comprar--active {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
 }

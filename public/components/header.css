@@ -12,6 +12,39 @@
   margin-left: 15px;
 }
 
+.header__logo:hover {
+  animation: header__logo--hover 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  cursor: pointer;
+}
+.header__logo:focus {
+  outline: none;
+}
+.header__logo:active {
+  animation: header__logo--active 0.6s both;
+}
+
+@keyframes header__logo--hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 5px 5px 10px #30353c, -5px -5px 10px #424751;
+  }
+  100% {
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px #30353c, -5px -5px 10px #424751;
+  }
+}
+
+@keyframes header__logo--active {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
 .header__logo--imagen {
   width: 35px;
   height: 35px;
@@ -39,6 +72,39 @@
   justify-content: center;
   align-items: center;
   background-color: transparent;
+}
+.header__categoria:hover {
+  animation: header__categoria--hover 0.6s both;
+  cursor: pointer;
+}
+
+.header__categoria:active {
+  animation: header__categoria--active 0.6s both;
+}
+.header__categoria:focus {
+  outline: none;
+}
+
+@keyframes header__categoria--hover {
+  0% {
+    text-shadow: 0 0 0 rgba(238, 238, 238, 0);
+    border-bottom: 0px solid rgba(0, 173, 181, 0);
+  }
+  100% {
+    text-shadow: 0 0 18px rgba(238, 238, 238, 0.5);
+    border-bottom: 3px solid rgba(0, 173, 181, 0.5);
+  }
+}
+
+@keyframes header__categoria--active {
+  0% {
+    text-shadow: 0 0 18px rgba(238, 238, 238, 0.5);
+    border-bottom: 3px solid rgba(0, 173, 181, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 18px rgba(238, 238, 238, 0.5);
+    border-bottom: 3px solid rgba(0, 173, 181, 1);
+  }
 }
 
 .header__categoria--seleccionado {
@@ -79,6 +145,40 @@
   position: relative;
   left: 12px;
   bottom: 12px;
+}
+
+.header__carrito:hover {
+  animation: header__carrito--hover 0.2s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  cursor: pointer;
+}
+.header__carrito:focus {
+  outline: none;
+}
+.header__carrito:active {
+  animation: header__carrito--active 0.6s both;
+}
+
+@keyframes header__carrito--hover {
+  0% {
+    transform: scale(1);
+    box-shadow: 5px 5px 10px #30353c, -5px -5px 10px #424751;
+  }
+  100% {
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px #30353c, -5px -5px 10px #424751;
+  }
+}
+
+@keyframes header__carrito--active {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
 }
 
 @media (max-width: 425px) {

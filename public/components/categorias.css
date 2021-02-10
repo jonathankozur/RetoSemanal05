@@ -9,29 +9,27 @@
   display: flex;
   flex-flow: column nowrap;
   width: 270px;
-  background-color: #636871;  
+  background-color: #636871;
   margin: 10px 5px 0px 5px;
 
   border-radius: 20px;
   background: #636871;
-  box-shadow:  5px 5px 10px #595e66,
-               -5px -5px 10px #6d727c;
+  box-shadow: 5px 5px 10px #595e66, -5px -5px 10px #6d727c;
 }
 .categorias__card:hover {
-  animation: scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: categorias__card--scale-up-center 0.2s
+    cubic-bezier(0.39, 0.575, 0.565, 1) both;
   cursor: pointer;
 }
 
- @keyframes scale-up-center {
+@keyframes categorias__card--scale-up-center {
   0% {
     transform: scale(1);
-    box-shadow:  5px 5px 10px #595e66,
-               -5px -5px 10px #6d727c;
+    box-shadow: 5px 5px 10px #595e66, -5px -5px 10px #6d727c;
   }
   100% {
     transform: scale(1.01);
-    box-shadow:  5px 5px 10px #4f535a,
-               -5px -5px 10px #777d88;
+    box-shadow: 5px 5px 10px #4f535a, -5px -5px 10px #777d88;
   }
 }
 
