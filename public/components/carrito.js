@@ -20,6 +20,7 @@ export default class Carrito {
   crearProducto(producto) {
     let elemento = document.createElement("li");
     elemento.classList.add("carrito__producto");
+    elemento.addEventListener('click',(event)=>this.clickCard(event,producto.descripcion))
 
     let imagen = document.createElement("img");
     imagen.classList.add("carrito__producto--imagen");
@@ -55,6 +56,10 @@ export default class Carrito {
 
     elemento.append(imagen, contenedorInfo);
     return elemento;
+  }
+
+  clickCard(event,producto){
+      this.props.acciones.showModal(producto)
   }
 
   modelo(props) {

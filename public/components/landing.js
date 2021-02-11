@@ -26,6 +26,11 @@ export default class Landing {
     return texto.length > limite ? texto.substring(0, limite) + dots : texto;
   }
 
+  clickCard(event,producto){
+    if (!event.target.classList.contains('landing__fondo--comprar'))
+      this.props.acciones.showModal(producto)
+  }
+
   modelo(props) {
     let css = this.cargarCSS();
 
@@ -39,7 +44,8 @@ export default class Landing {
 
     let fondoDatos = document.createElement("div");
     fondoDatos.classList.add("landing__fondo");
-    fondoDatos.addEventListener('click',()=>this.props.acciones.showModal(productoDestacado))
+    // fondoDatos.addEventListener('click',()=>this.props.acciones.showModal(productoDestacado))
+    fondoDatos.addEventListener('click',(event)=>this.clickCard(event,productoDestacado))
 
     let imagen = document.createElement("img");
     imagen.classList.add("landing__fondo--imagen");

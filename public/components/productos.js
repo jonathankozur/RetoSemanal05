@@ -20,11 +20,16 @@ export default class Productos {
   clickComprar(producto) {
     this.props.acciones.agregarCarrito(producto);
   }
+  clickCard(event,producto){
+    if (!event.target.classList.contains('productos__card--comprar'))
+      this.props.acciones.showModal(producto)
+  }
 
   crearProducto(producto) {
     let card = document.createElement("div");
     card.classList.add("productos__card");
     card.setAttribute("data-id", producto.id);
+    card.addEventListener('click',(event)=>this.clickCard(event,producto))
 
     let imagen = document.createElement("img");
     imagen.classList.add("productos__card--imagen");

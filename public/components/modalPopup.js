@@ -54,11 +54,13 @@ export default class ModalPopup {
     }
 
     cerrarModal(fondo) {
-      fondo.classList.remove("scale-in-tr");
-      fondo.classList.add("scale-out-tr");
+      fondo.classList.remove("fade-in-fwd");
+      fondo.classList.add("fade-out-bck");
       setTimeout(() => {
         fondo.remove();
       }, 400);
+
+      document.querySelector('.root').classList.remove('dialog-open')
     }
   
     modelo(props) {
@@ -66,7 +68,7 @@ export default class ModalPopup {
         let fondo = document.createElement("div");
         let cuadro = document.createElement("div");
   
-        fondo.classList.add("modalPopup__fondo", "scale-in-tr");
+        fondo.classList.add("modalPopup__fondo", "fade-in-fwd");
         cuadro.classList.add("modalPopup__cuadro");
 
         let producto = this.crearProducto(props.producto)
@@ -78,6 +80,9 @@ export default class ModalPopup {
             this.cerrarModal(fondo);
         });
   
+
+        document.querySelector('.root').classList.add('dialog-open')
+        window.scrollTo(0, 0);
       return fondo;
     }
     main(props) {}
