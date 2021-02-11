@@ -93,6 +93,11 @@ export default class Carrito {
     let comprar = document.createElement("button");
     comprar.classList.add("carrito__total--comprar");
     comprar.textContent = "Buy all!";
+    comprar.addEventListener('click',()=>{
+      alert('CrotiAlert... Ya te mandamo toda la cosita...')
+      localStorage.clear()
+      location.reload()
+    })
 
     total.append(precioTotal, comprar);
 
