@@ -1,6 +1,7 @@
 import { getCarrito } from "./datos.js";
 export default class Carrito {
   constructor(props) {
+    this.total = 0;
     this.modelo = this.modelo(props);
     this.props = props;
     this.main(this.props);
@@ -25,19 +26,34 @@ export default class Carrito {
     imagen.classList.add("carrito__producto--imagen");
     imagen.src = producto.descripcion.image;
 
+    let contenedorInfo = document.createElement("div");
+    contenedorInfo.classList.add("carrito__producto--contenedorInfo");
+
     let titulo = document.createElement("h3");
     titulo.classList.add("carrito__producto--titulo");
     titulo.textContent = producto.descripcion.title;
 
+    let contenedorPrecioCantidad = document.createElement("div");
+    contenedorPrecioCantidad.classList.add(
+      "carrito__producto--contenedorPrecioCantidad"
+    );
+
     let cantidad = document.createElement("h3");
     cantidad.classList.add("carrito__producto--cantidad");
-    cantidad.textContent = producto.cantidad;
+    cantidad.textContent = producto.cantidad + " units.";
+
+    let precioProducto = producto.cantidad * producto.descripcion.price;
+    this.total += precioProducto;
 
     let precio = document.createElement("h3");
     precio.classList.add("carrito__producto--precio");
-    precio.textContent = producto.descripcion.price;
+    precio.textContent = "$ " + precioProducto.toFixed(2);
 
-    elemento.append(imagen, titulo, cantidad, precio);
+    contenedorPrecioCantidad.append(cantidad, precio);
+
+    contenedorInfo.append(titulo, contenedorPrecioCantidad);
+
+    elemento.append(imagen, contenedorInfo);
     return elemento;
   }
 
@@ -65,19 +81,15 @@ export default class Carrito {
     let total = document.createElement("div");
     total.classList.add("carrito__total");
 
-    let cantidadTotal = document.createElement("h3");
-    cantidadTotal.classList.add("carrito__total--cantidad");
-    cantidadTotal.textContent = "Count: 22";
-
     let precioTotal = document.createElement("h3");
     precioTotal.classList.add("carrito__total--precio");
-    precioTotal.textContent = "Total: $ " + "9999.99"; //.toFixed(2);
+    precioTotal.textContent = "Total: $ " + this.total.toFixed(2);
 
     let comprar = document.createElement("button");
     comprar.classList.add("carrito__total--comprar");
     comprar.textContent = "Buy all!";
 
-    total.append(cantidadTotal, precioTotal, comprar);
+    total.append(precioTotal, comprar);
 
     container.append(listadoProductos, total, css);
 
