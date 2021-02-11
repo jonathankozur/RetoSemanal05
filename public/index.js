@@ -8,7 +8,7 @@ import Header from "./components/header.js";
 import Landing from "./components/landing.js";
 import Productos from "./components/productos.js";
 
-let version = 3;
+let version = 4;
 let versionLocalStorage = localStorage.getItem("version");
 if (version != versionLocalStorage) localStorage.clear();
 localStorage.setItem("version", version);

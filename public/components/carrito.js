@@ -22,7 +22,7 @@ export default class Carrito {
     elemento.classList.add("carrito__producto");
 
     let imagen = document.createElement("img");
-    imagen.classList.add("carrito_producto--imagen");
+    imagen.classList.add("carrito__producto--imagen");
     imagen.src = producto.descripcion.image;
 
     let titulo = document.createElement("h3");
@@ -56,12 +56,30 @@ export default class Carrito {
     }, []);
 
     let listadoProductos = document.createElement("ul");
+    listadoProductos.classList.add("carrito__listado");
 
     productosCarrito.map((producto) =>
       listadoProductos.appendChild(this.crearProducto(producto))
     );
 
-    container.append(listadoProductos, css);
+    let total = document.createElement("div");
+    total.classList.add("carrito__total");
+
+    let cantidadTotal = document.createElement("h3");
+    cantidadTotal.classList.add("carrito__total--cantidad");
+    cantidadTotal.textContent = "Count: 22";
+
+    let precioTotal = document.createElement("h3");
+    precioTotal.classList.add("carrito__total--precio");
+    precioTotal.textContent = "Total: $ " + "9999.99"; //.toFixed(2);
+
+    let comprar = document.createElement("button");
+    comprar.classList.add("carrito__total--comprar");
+    comprar.textContent = "Buy all!";
+
+    total.append(cantidadTotal, precioTotal, comprar);
+
+    container.append(listadoProductos, total, css);
 
     return container;
   }

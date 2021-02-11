@@ -30,20 +30,25 @@ export default class Productos {
     imagen.classList.add("productos__card--imagen");
     imagen.src = producto.image;
 
+    let contenedorDatos = document.createElement("div");
+    contenedorDatos.classList.add("productos__card--contenedor");
+
     let titulo = document.createElement("h3");
     titulo.classList.add("productos__card--tituto");
     titulo.textContent = producto.title;
 
     let precio = document.createElement("h4");
     precio.classList.add("productos__card--precio");
-    precio.textContent = '$ '+producto.price.toFixed(2)
+    precio.textContent = "$ " + producto.price.toFixed(2);
 
     let comprar = document.createElement("button");
     comprar.classList.add("productos__card--comprar");
-    comprar.textContent = "Comprar";
+    comprar.textContent = "Buy it!";
     comprar.addEventListener("click", () => this.clickComprar(producto));
 
-    card.append(imagen, titulo, precio, comprar);
+    contenedorDatos.append(titulo, precio);
+
+    card.append(imagen, contenedorDatos, comprar);
 
     return card;
   }
