@@ -6,12 +6,15 @@ export default class ModalPopup {
       }
       cargarCSS() {
         let css = document.createElement("link");
+        css.setAttribute('type',"text/css")
         css.setAttribute("rel", "stylesheet");
         css.setAttribute(
           "href",
-          "./components/" + this.constructor.name.toLowerCase() + ".css"
+          "components/" + this.constructor.name.toLowerCase() + ".css"
         );
         css.setAttribute("media", "screen");
+        
+        
         return css;
       }
     crearBoton(accion, idBoton) {
