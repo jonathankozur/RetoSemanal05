@@ -18,13 +18,13 @@ export default class Carrito {
   }
 
   crearProducto(producto) {
-    console.log("producto", producto);
     let elemento = document.createElement("li");
     elemento.classList.add("carrito__producto");
 
     let imagen = document.createElement("img");
     imagen.classList.add("carrito__producto--imagen");
     imagen.src = producto.descripcion.image;
+    imagen.alt = producto.descripcion.title;
 
     let contenedorInfo = document.createElement("div");
     contenedorInfo.classList.add("carrito__producto--contenedorInfo");

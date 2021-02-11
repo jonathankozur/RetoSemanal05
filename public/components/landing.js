@@ -39,10 +39,12 @@ export default class Landing {
 
     let fondoDatos = document.createElement("div");
     fondoDatos.classList.add("landing__fondo");
+    fondoDatos.addEventListener('click',()=>this.props.acciones.showModal(productoDestacado))
 
     let imagen = document.createElement("img");
     imagen.classList.add("landing__fondo--imagen");
     imagen.src = productoDestacado.image;
+    imagen.alt = productoDestacado.title;
 
     let titulo = document.createElement("h1");
     titulo.classList.add("landing__fondo--titulo");

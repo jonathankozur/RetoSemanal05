@@ -51,7 +51,8 @@ for (let i = 0; i < 8; i++) {
       }
     });
     Promise.all(arrayPromise).then(() =>
-      setTimeout(() => props.acciones.show(props.proximaPagina), 10)
+      // setTimeout(() => props.acciones.show(props.proximaPagina), 10)
+      props.acciones.show(props.proximaPagina)
     );
   }
 }

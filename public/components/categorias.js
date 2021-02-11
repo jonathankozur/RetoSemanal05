@@ -51,6 +51,7 @@ export default class Categorias {
     let imagen = document.createElement("img");
     imagen.classList.add("categorias__card--imagen");
     imagen.src = "./images/category-" + categoria.replace(" ", "-") + ".webp";
+    imagen.alt = categoria;
 
     let titulo = document.createElement("h3");
     titulo.classList.add("categorias__card--titulo");

@@ -63,7 +63,9 @@
 
 .carrito__producto--imagen {
   width: 80px;
+  min-width: 80px;
   height: 80px;
+  min-height: 80px;
   object-fit: cover;
   border-radius: 20px 0px 0px 20px;
 }
@@ -84,9 +86,11 @@
 }
 
 .carrito__producto--titulo {
-  margin: 0px;
   width: 95%;
   margin: 0px 10px 0px 10px;
+  max-height: 50px;
+  font-size: 14px;
+  overflow: hidden ;
 }
 .carrito__producto--cantidad {
   margin: 0px;
@@ -119,7 +123,8 @@
 .carrito__total--comprar {
   background-color: #00adb5;
   border: none;
-  color: #eeeeee;
+  /* color: #eeeeee; */
+  color: #010101;
   width: 100%;
   height: 30px;
   padding: 2px;

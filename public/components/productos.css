@@ -89,7 +89,8 @@
 .productos__card--comprar {
   background-color: #00adb5;
   border: none;
-  color: #eeeeee;
+  /* color: #eeeeee; */
+  color: #010101;
   width: 100%;
   height: 30px;
   padding: 2px;

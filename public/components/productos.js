@@ -29,6 +29,7 @@ export default class Productos {
     let imagen = document.createElement("img");
     imagen.classList.add("productos__card--imagen");
     imagen.src = producto.image;
+    imagen.alt = producto.title;
 
     let contenedorDatos = document.createElement("div");
     contenedorDatos.classList.add("productos__card--contenedor");

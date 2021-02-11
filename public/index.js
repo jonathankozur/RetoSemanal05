@@ -7,8 +7,9 @@ import Footer from "./components/footer.js";
 import Header from "./components/header.js";
 import Landing from "./components/landing.js";
 import Productos from "./components/productos.js";
+import ModalPopup from "./components/modalPopup.js"
 
-let version = 4;
+let version = 2;
 let versionLocalStorage = localStorage.getItem("version");
 if (version != versionLocalStorage) localStorage.clear();
 localStorage.setItem("version", version);
@@ -35,6 +36,7 @@ function crearComponente(elemento) {
   elemento.props.acciones = {
     show: (componentes) => show(componentes),
     agregarCarrito: (producto) => agregarCarrito(producto),
+    showModal: (producto)=>showModal(producto),
   };
   switch (elemento.componente) {
     case "header":
@@ -66,6 +68,11 @@ function show(componentes) {
   componentes.map((el) => agregarShow(crearComponente(el).modelo));
 }
 
+function showModal(producto){
+  let props = {producto:producto}
+  agregarShow(new ModalPopup(props).modelo);
+}
+
 function agregarCarrito(producto) {
   let elementoCarrito = document.querySelector(".header__carrito--cantidad");
   addCarrito(producto);
@@ -74,3 +81,4 @@ function agregarCarrito(producto) {
 
 /**aca empieza todo**/
 show(JSON.parse(localStorage.getItem("show")));
+

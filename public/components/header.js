@@ -13,6 +13,7 @@ export default class Header {
       elemento.classList.add("header__categoria--seleccionado");
 
     elemento.setAttribute("categoria", categoria);
+    elemento.setAttribute('aria-label', categoria);
     elemento.addEventListener("click", (e) => this.clickCategoria(e));
 
     let icono = document.createElement("img");
@@ -97,6 +98,7 @@ export default class Header {
     let logo = document.createElement("button");
     logo.classList.add("header__logo");
     logo.addEventListener("click", () => this.clickLogo(props));
+    logo.setAttribute('aria-label', 'Logo');
 
     let imagen = document.createElement("img");
     imagen.classList.add("header__logo--imagen");
@@ -111,6 +113,8 @@ export default class Header {
     let elementoCarrito = document.createElement("button");
     elementoCarrito.classList.add("header__carrito");
     elementoCarrito.style.backgroundImage = "url(./images/icon-carrito.svg)";
+    elementoCarrito.setAttribute('aria-label', 'Cart');
+
     elementoCarrito.addEventListener("click", () => this.clickCarrito(props));
 
     let cantidad = document.createElement("p");

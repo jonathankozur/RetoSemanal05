@@ -40,7 +40,8 @@
 .categorias__card--titulo {
   text-align: center;
   margin: 5px;
-  color: #eeeeee;
+  /* color: #eeeeee; */
+  color: #010101;
   text-transform: capitalize;
   font-family: "Raleway", sans-serif;
 }

@@ -1,0 +1,25 @@
+.footer__container {
+    width: 100%;
+    margin-top: 30px;
+    min-height: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #393e46;
+    color: #eeeeee;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    flex-basis: 40px;
+    text-align: center;
+    padding: 5px;
+  }
+  .footer__escuela {
+    text-decoration: none;
+    color: var(--neutro);
+  }
+  
+  .footer__escuela:hover {
+    color: #00adb5;
+  }
+  

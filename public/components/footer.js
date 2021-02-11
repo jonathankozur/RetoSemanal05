@@ -16,12 +16,21 @@ export default class Footer {
   modelo() {
     let css = this.cargarCSS();
     let container = document.createElement("footer");
-    let h1 = document.createElement("h1");
-
     container.classList.add("footer__container");
-    h1.textContent = "Footer";
 
-    container.append(h1, css);
+    let derechos = document.createElement('span')
+    derechos.classList.add('footer__derechos')
+    derechos.textContent = 'Todos los derechos reservados Jonathan Kozur 2021 - SummerHack - Desafio Semana 05 - '
+    
+    let escuela = document.createElement('a')
+    escuela.classList.add('footer__escuela')
+    escuela.href = 'https://escueladevrock.com/'
+    escuela.target = '_blank'
+    escuela.rel = 'noopener'
+    escuela.textContent = 'EscuelaDevRock'
+
+    derechos.appendChild(escuela);
+    container.append(derechos, css);
     return container;
   }
 }
