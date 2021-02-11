@@ -2,64 +2,64 @@
     position: absolute;
     top: 0px;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     margin: 0px;
     z-index: 1000;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    background-color: rgba(180, 132, 132, 0.7);
+    background-color: rgba(0, 173, 181, 0.7);
   }
   .modalPopup__cuadro {
     width: 60%;
-    padding: 10px;
+    min-width: 700px;
+    padding: 0px;
+    margin: 20px 0px 20px 0px;
     z-index: 1001;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    background: #9e6685;
-    box-shadow: 10px 10px 20px rgba(150, 97, 126, 0.6),
-      -10px -10px 20px rgba(166, 107, 140, 0.6);
+    border-radius: 25px;
+    background: #00adb5;
+    box-shadow:  25px 25px 36px #00989f,
+                -25px -25px 36px #00c2cb;
   }
-  .modalPopup__boton {
-    width: 80%;
-    min-height: 40px;
-    flex-grow: 1;
-    margin: 10px 0px 10px 0px;
-    z-index: 1002;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #a96d8e, #8e5c78);
-    box-shadow: 10px 10px 20px #865771, -10px -10px 20px #b67599;
-    border: none;
-    font-size: 15px;
+  .modal__producto{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
   }
-  .modalPopup__boton:hover {
-    background: #9e6685;
+
+  .modal__producto--imagen{
+      max-width: 320px;
+      border-radius: 25px 0px 0px 25px;
+      object-fit: cover;
   }
-  
-  .modalPopup__boton:active {
-    animation: modalPopup__boton_active 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      both;
-    background: linear-gradient(145deg, #8e5c78, #a96d8e);
-    outline:none
+  .modal__producto--contenedorDatos{
+    min-width: 320px;
+    width: 48%;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
   }
-  
-  .modalPopup__boton:focus{
-    outline:none
+  .modal__producto--titulo{
+    width: 100%;
   }
-  
-  @keyframes modalPopup__boton_active {
-    0% {
-      transform: translateZ(0);
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-    100% {
-      transform: translateZ(50px);
-      box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-    }
+  .modal__producto--descripcion{
+    width: 100%;
+    
+  }
+  .modal__producto--precio{
+      width: 100%;
+      text-align: right;
   }
   
   .scale-in-tr {
@@ -104,5 +104,22 @@
       transform: scale(0);
       transform-origin: 100% 0%;
       opacity: 1;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .modalPopup__cuadro {
+      min-width: 320px;
+    }
+    .modal__producto--imagen{
+        min-width: 100%;
+        border-radius: 25px 25px 0px 0px;
+        object-fit: cover;
+    }
+    .modal__producto{
+        justify-content: center;
+    }
+    .modal__producto--contenedorDatos{
+min-width: 280px;
     }
   }
